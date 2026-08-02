@@ -81,6 +81,7 @@ async def extract_complaint(
     )
 
 
+
 @router.post("/chat", response_model=schemas.ChatResponse)
 def chat(payload: schemas.ChatRequest, db: Session = Depends(get_db)):
     db.add(models.ChatMessage(session_id=payload.session_id, role="user", content=payload.message))
